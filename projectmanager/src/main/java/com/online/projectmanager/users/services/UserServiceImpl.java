@@ -123,4 +123,14 @@ public class UserServiceImpl implements  UserService{
             return response;
         }
     }
+
+    @Override
+    public Optional<User> getUser(long id) {
+        Optional<User> user = userRepository.findById(id);
+        if(user.isEmpty()){
+            return null;
+        }else {
+            return user;
+        }
+    }
 }
