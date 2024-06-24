@@ -1,4 +1,4 @@
-package com.online.projectmanager.users.configs;
+package com.online.projectmanager.authentication.configs;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

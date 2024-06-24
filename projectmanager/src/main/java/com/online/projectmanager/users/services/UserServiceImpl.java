@@ -1,6 +1,6 @@
 package com.online.projectmanager.users.services;
 
-import com.online.projectmanager.users.configs.JwtService;
+import com.online.projectmanager.authentication.configs.JwtService;
 import com.online.projectmanager.users.models.Role;
 import com.online.projectmanager.users.models.User;
 import com.online.projectmanager.users.repositories.UserRepository;
@@ -10,7 +10,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;

@@ -1,4 +1,4 @@
-package com.online.projectmanager.users.configs;
+package com.online.projectmanager.authentication.configs;
 
 import com.online.projectmanager.users.repositories.UserRepository;
 import lombok.AllArgsConstructor;
