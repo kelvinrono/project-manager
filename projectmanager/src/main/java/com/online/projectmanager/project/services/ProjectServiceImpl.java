@@ -41,6 +41,7 @@ public class ProjectServiceImpl implements ProjectService {
             projectRepository.save(newProject);
             response.put("message", "project saved successfully");
             response.put("status", true);
+            response.put("statusCode", "201");
             return response;
         }catch (Exception e){
            return getError(e);

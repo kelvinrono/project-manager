@@ -1,5 +1,6 @@
 package com.online.projectmanager.project.controllers;
 
+import com.online.projectmanager.project.DTOs.ProjectDTO;
 import com.online.projectmanager.project.repositories.ProjectRepository;
 import com.online.projectmanager.project.services.ProjectService;
 import com.online.projectmanager.project.services.constants.PageObject;
@@ -10,10 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 
@@ -35,9 +33,16 @@ public class ProjectController {
         HashMap<String, Object> response  = projectService.getProject(id);
 
         if(projectService.getProject(id).get("status").equals(false)){
-            return new ResponseEntity<>(response, (HttpStatusCode) response.get("statusCode"));
+            return new ResponseEntity<>(response, HttpStatus.valueOf( (Integer) response.get("statusCode")));
         }
         return new ResponseEntity(projectService.getProject(id), HttpStatus.OK);
+    }
+    @PostMapping("/project")
+    public ResponseEntity<HashMap> createProject(@RequestBody ProjectDTO projectDTO){
+        HashMap<String, Object> response = projectService.createProject(projectDTO);
+
+            return new ResponseEntity<>(response, HttpStatus.valueOf( (Integer) response.get("statusCode")));
+
     }
 
 

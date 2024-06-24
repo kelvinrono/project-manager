@@ -9,5 +9,7 @@ public interface UserService {
     HashMap register(HashMap params);
     HashMap login( HashMap params);
     HashMap validateUser(HashMap params);
+
+    HashMap getAllUsers ();
     Optional <User> getUser(long id);
 }
