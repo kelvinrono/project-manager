@@ -1,4 +1,4 @@
-package com.online.projectmanager.users.configs;
+package com.online.projectmanager.authentication.configs;
 
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -24,7 +24,7 @@ public class SecurityConfiguration {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .csrf(csrf -> csrf.disable())
-                .authorizeHttpRequests(auth ->auth.requestMatchers("api/v1/auth/**")
+                .authorizeHttpRequests(auth ->auth.requestMatchers("api/v1/**")
                         .permitAll()
                         .anyRequest()
                         .authenticated())
@@ -34,5 +34,6 @@ public class SecurityConfiguration {
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }
+
 
 }
